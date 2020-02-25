@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/MINT64.dir/00.BootLoader/disk_read.c.o CMakeFiles/MINT64.dir/main.c.o  -o MINT64 
