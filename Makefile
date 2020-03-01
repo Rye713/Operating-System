@@ -1,31 +1,36 @@
-# 기본적으로 빌드를 수행할 목록
-all: BootLoader Disk.img
+all: BootLoader Kernel32 Disk.img
 
-# 부트 로더 빌드를 위해 부트 로더 디렉터리에서 make 실행
 BootLoader:
-	@echo 
-	@echo ============== Build Boot Loader ===============
-	@echo 
-	
+	@echo
+	@echo ========== Build Boot Loader ==========
+	@echo
+
 	make -C 00.BootLoader
 
-	@echo 
-	@echo =============== Build Complete ===============
-	@echo 
-	
-# OS 이미지 생성
-Disk.img: 00.BootLoader/BootLoader.bin
-	@echo 
-	@echo =========== Disk Image Build Start ===========
-	@echo 
+	@echo
+	@echo ========== Build Complete ==========
+	@echo
+Kernel32:
+	@echo
+	@echo ========== Build 32bit Kernel ==========
+	@echo
 
-	cp 00.BootLoader/BootLoader.bin Disk.img
+	make -C 01.Kernel32
 
-	@echo 
-	@echo ============= All Build Complete =============
-	@echo 
+	@echo
+	@echo ========== Build Complete ==========
+	@echo
+
+Disk.img: BootLoader Kernel32
+	@echo
+	@echo ========== Disk Image Build Start ==========
+	@echo
+
+	cat 00.BootLoader/BootLoader.bin 01.Kernel32/VirtualOS.bin > Disk.img
 	
-# 소스 파일을 제외한 나머지 파일 정리	
+	@echo
+	@echo ========== All Build Complete ==========
+	@echo
 clean:
 	make -C 00.BootLoader clean
-	rm -f Disk.img	
+	rm -f Disk.Image
