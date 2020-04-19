@@ -38,6 +38,7 @@
     tar xvJf ${package}.tar.xz
     #Belows are required additional packages for qemu.(https://wiki.qemu.org/Hosts/Linux)
     sudo apt install -y git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev liblzo2-dev
+    sudo apt instsall -y libsdl2-dev libspice-server-dev libusbredirhost-dev
 
     # Belows are recommended additional packages for qemu.(https://wiki.qemu.org/Hosts/Linux)
     sudo apt install -y git-email
