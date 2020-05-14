@@ -3,4 +3,4 @@
 *.elf
 *.dep
 *.log
-scripts/qemu build
+scripts/qemu_build/
