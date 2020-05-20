@@ -129,5 +129,11 @@ BOOL kInitializeKeyboard( void );
 BOOL kConvertScanCodeAndPutQueue( BYTE bScanCode );
 BOOL kGetKeyFromKeyQueue( KEYDATA* pstData );
 BOOL kWaitForACKAndPutOtherScanCode( void );
+<<<<<<< HEAD
 
 #endif /*__KEYBOARD_H__*/
+=======
+
+#endif /*__KEYBOARD_H__*/
+
+>>>>>>> upstream/master
